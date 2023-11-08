@@ -1,0 +1,265 @@
+{
+  "plugins": [
+    {
+      "name": "MsaView",
+      "url": "jbrowse-plugin-msaview.umd.production.min.js"
+    },
+    {
+      "name": "Protein3d",
+      "url": "jbrowse-plugin-protein3d.umd.production.min.js"
+    },
+    {
+      "name": "MafViewer",
+      "url": "https://unpkg.com/jbrowse-plugin-mafviewer/dist/jbrowse-plugin-mafviewer.umd.production.min.js"
+    }
+  ],
+  "assemblies": [
+    {
+      "name": "hg38",
+      "aliases": ["GRCh38"],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "P6R5xbRqRr",
+        "adapter": {
+          "type": "BgzipFastaAdapter",
+          "fastaLocation": {
+            "uri": "https://jbrowse.org/genomes/GRCh38/fasta/hg38.prefix.fa.gz",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "https://jbrowse.org/genomes/GRCh38/fasta/hg38.prefix.fa.gz.fai",
+            "locationType": "UriLocation"
+          },
+          "gziLocation": {
+            "uri": "https://jbrowse.org/genomes/GRCh38/fasta/hg38.prefix.fa.gz.gzi",
+            "locationType": "UriLocation"
+          }
+        }
+      },
+      "refNameAliases": {
+        "adapter": {
+          "type": "RefNameAliasAdapter",
+          "location": {
+            "uri": "https://s3.amazonaws.com/jbrowse.org/genomes/GRCh38/hg38_aliases.txt",
+            "locationType": "UriLocation"
+          }
+        }
+      },
+      "cytobands": {
+        "adapter": {
+          "type": "CytobandAdapter",
+          "cytobandLocation": {
+            "uri": "https://s3.amazonaws.com/jbrowse.org/genomes/GRCh38/cytoBand.txt"
+          }
+        }
+      }
+    }
+  ],
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "gencode.v44.annotation.sorted.gff3",
+      "name": "GENCODE v44",
+      "category": ["Annotation"],
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "https://jbrowse.org/demos/app/gencode.v44.annotation.sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "https://jbrowse.org/demos/app/gencode.v44.annotation.sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": ["hg38"],
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "gencode_nclist_v36_hg38_linear",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "labels": {
+              "name": "jexl:get(feature,'gene_name')"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "VariantTrack",
+      "trackId": "clinvar.vcf",
+      "name": "ClinVar",
+      "category": ["Variants"],
+      "metadata": {
+        "source": "From ClinVar FTP, downloaded Oct 15 2023"
+      },
+      "adapter": {
+        "type": "VcfTabixAdapter",
+        "vcfGzLocation": {
+          "uri": "https://jbrowse.org/demos/app/clinvar.vcf.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "https://jbrowse.org/demos/app/clinvar.vcf.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": ["hg38"],
+      "displays": [
+        {
+          "type": "LinearVariantDisplay",
+          "displayId": "clinvar_ncbi-LinearVariantDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:get(feature,'INFO').CLNSIG=='Benign'?'blue':get(feature,'INFO').CLNSIG=='Likely_benign'?'deepskyblue':get(feature,'INFO').CLNSIG=='Uncertain_significance'?'gray':get(feature,'INFO').CLNSIG=='Pathogenic'?'red':get(feature,'INFO').CLNSIG=='Likely_pathogenic'?'orange':get(feature,'INFO').CLNSIG=='Conflicting_interpretations_of_pathogenicity'?'brown':'purple'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "cosmic.bed",
+      "name": "COSMIC variants",
+      "category": ["Variants"],
+      "metadata": {
+        "source": "From UCSC table browser export, downloaded Oct 15 2023"
+      },
+      "adapter": {
+        "type": "BedTabixAdapter",
+        "bedGzLocation": {
+          "uri": "https://jbrowse.org/demos/app/cosmic.bed.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "https://jbrowse.org/demos/app/cosmic.bed.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": ["hg38"]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "hg38.phyloP100way",
+      "name": "hg38.phyloP100way",
+      "category": ["Conservation"],
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "http://hgdownload.cse.ucsc.edu/goldenpath/hg38/phyloP100way/hg38.phyloP100way.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "assemblyNames": ["hg38"]
+    },
+    {
+      "type": "MafTrack",
+      "trackId": "30way.maf.bed",
+      "name": "30way.maf.bed",
+      "category": ["Conservation"],
+      "adapter": {
+        "type": "MafTabixAdapter",
+        "samples": [
+          { "label": "Human", "id": "hg38" },
+          { "label": "Chimp", "id": "panTro5" },
+          { "label": "Bonobo", "id": "panPan2" },
+          { "label": "Gorilla", "id": "gorGor5" },
+          { "label": "Orangutan", "id": "ponAbe2" },
+          { "label": "Gibbon", "id": "nomLeu3" },
+          { "label": "Rhesus", "id": "rheMac8" },
+          { "label": "Crab-eating macaque", "id": "macFas5" },
+          { "label": "Pig-tailed macaque", "id": "macNem1" },
+          { "label": "Sooty mangabey", "id": "cerAty1" },
+          { "label": "Baboon", "id": "papAnu3" },
+          { "label": "Green monkey", "id": "chlSab2" },
+          { "label": "Drill", "id": "manLeu1" },
+          { "label": "Proboscis monkey", "id": "nasLar1" },
+          { "label": "Angolan colobus", "id": "colAng1" },
+          { "label": "Golden snub-nosed monkey", "id": "rhiRox1" },
+          { "label": "Black snub-nosed monkey", "id": "rhiBie1" },
+          { "label": "Marmoset", "id": "calJac3" },
+          { "label": "Squirrel monkey", "id": "saiBol1" },
+          { "label": "White-faced sapajou", "id": "cebCap1" },
+          { "label": "Ma's night monkey", "id": "aotNan1" },
+          { "label": "Tarsier", "id": "tarSyr2" },
+          { "label": "Mouse lemur", "id": "micMur3" },
+          { "label": "Coquerel's sifaka", "id": "proCoq1" },
+          { "label": "Black lemur", "id": "eulMac1" },
+          { "label": "Sclater's lemur", "id": "eulFla1" },
+          { "label": "Bushbaby", "id": "otoGar3" },
+          { "label": "Mouse", "id": "mm10" },
+          { "label": "Dog", "id": "canFam3" },
+          { "label": "Armadillo", "id": "dasNov3" }
+        ],
+        "bedGzLocation": {
+          "uri": "30way.maf.bed.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "30way.maf.bed.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": ["hg38"]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "hg38.phastCons30way",
+      "name": "hg38.phastCons30way",
+      "category": ["Conservation"],
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "https://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons30way/hg38.phastCons30way.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "assemblyNames": ["hg38"]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "hg38.phyloP30way",
+      "name": "hg38.phyloP30way",
+      "category": ["Conservation"],
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "https://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP30way/hg38.phyloP30way.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "assemblyNames": ["hg38"]
+    }
+  ],
+  "aggregateTextSearchAdapters": [
+    {
+      "type": "TrixTextSearchAdapter",
+      "textSearchAdapterId": "hg38-index",
+      "ixFilePath": {
+        "uri": "https://jbrowse.org/demos/app/trix/hg38.ix",
+        "locationType": "UriLocation"
+      },
+      "ixxFilePath": {
+        "uri": "https://jbrowse.org/demos/app/trix/hg38.ixx",
+        "locationType": "UriLocation"
+      },
+      "metaFilePath": {
+        "uri": "https://jbrowse.org/demos/app/trix/hg38_meta.json",
+        "locationType": "UriLocation"
+      },
+      "assemblyNames": ["hg38"]
+    }
+  ]
+}
