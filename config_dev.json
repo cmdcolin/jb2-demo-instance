@@ -2,11 +2,11 @@
   "plugins": [
     {
       "name": "MsaView",
-      "url": "jbrowse-plugin-msaview.umd.production.min.js"
+      "url": "http://localhost:9000/dist/out.js"
     },
     {
       "name": "Protein3d",
-      "url": "jbrowse-plugin-protein3d.umd.production.min.js"
+      "url": "http://localhost:9001/dist/out.js"
     },
     {
       "name": "MafViewer",
@@ -334,8 +334,9 @@
     },
     {
       "type": "FeatureTrack",
-      "trackId": "out.sorted.gff",
-      "name": "out.sorted.gff",
+      "trackId": "ncbi_refseq",
+      "name": "NCBI RefSeq",
+      "category": ["Annotation"],
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
@@ -373,4 +374,3 @@
     }
   ]
 }
-
