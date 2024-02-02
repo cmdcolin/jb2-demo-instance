@@ -372,5 +372,88 @@
       },
       "assemblyNames": ["hg38"]
     }
-  ]
+  ],
+  "defaultSession": {
+    "proteinModel": {},
+    "drawerPosition": "right",
+    "drawerWidth": 384,
+    "widgets": {
+      "GridBookmark": {
+        "id": "GridBookmark",
+        "type": "GridBookmarkWidget"
+      },
+      "hierarchicalTrackSelector": {
+        "id": "hierarchicalTrackSelector",
+        "type": "HierarchicalTrackSelectorWidget",
+        "initialized": true,
+        "collapsed": {},
+        "view": "zgz_-Qr7nNbi83nJXNLnQ",
+        "faceted": {
+          "filterText": "",
+          "showSparse": false,
+          "showFilters": true,
+          "showOptions": false,
+          "panelWidth": 400
+        }
+      }
+    },
+    "activeWidgets": {
+      "hierarchicalTrackSelector": "hierarchicalTrackSelector"
+    },
+    "minimized": false,
+    "id": "VoDejwePg3JzkR359IHy5",
+    "name": "New session 2/1/2024, 9:44:04 PM",
+    "margin": 0,
+    "views": [
+      {
+        "id": "zgz_-Qr7nNbi83nJXNLnQ",
+        "minimized": false,
+        "type": "LinearGenomeView",
+        "offsetPx": 251760.671875,
+        "bpPerPx": 203.3819319131076,
+        "displayedRegions": [
+          {
+            "refName": "1",
+            "start": 0,
+            "end": 248956422,
+            "reversed": false,
+            "assemblyName": "hg38"
+          }
+        ],
+        "tracks": [
+          {
+            "id": "Qe2eoyISqdWQdDz0g6q62",
+            "type": "FeatureTrack",
+            "configuration": "gencode.v44.annotation.sorted.gff3",
+            "minimized": false,
+            "displays": [
+              {
+                "id": "4r-xItqHFJ0-Iqd4NGWC-",
+                "type": "LinearBasicDisplay",
+                "heightPreConfig": 250,
+                "configuration": "gencode_nclist_v36_hg38_linear"
+              }
+            ]
+          }
+        ],
+        "hideHeader": false,
+        "hideHeaderOverview": false,
+        "hideNoTracksActive": false,
+        "trackSelectorType": "hierarchical",
+        "showCenterLine": false,
+        "showCytobandsSetting": true,
+        "trackLabels": "",
+        "showGridlines": true,
+        "showBookmarkHighlights": true,
+        "showBookmarkLabels": true
+      }
+    ],
+    "sessionTracks": [],
+    "sessionAssemblies": [],
+    "temporaryAssemblies": [],
+    "connectionInstances": [],
+    "sessionConnections": [],
+    "focusedViewId": "zgz_-Qr7nNbi83nJXNLnQ",
+    "sessionPlugins": []
+  }
 }
