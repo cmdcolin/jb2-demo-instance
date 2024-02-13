@@ -4,6 +4,7 @@
     "prettier": "^3.2.4"
   },
   "scripts": {
-    "start": "npx serve --cors -l 9002"
+    "start": "npx serve --cors -l 9002",
+    "deploy": "aws s3 sync . s3://jbrowse.org/demos/app"
   }
 }

@@ -2,11 +2,15 @@
   "plugins": [
     {
       "name": "MsaView",
-      "url": "http://localhost:9000/dist/out.js"
+      "umdLoc": {
+        "uri": "http://localhost:9000/dist/out.js"
+      }
     },
     {
       "name": "Protein3d",
-      "url": "http://localhost:9001/dist/out.js"
+      "umdLoc": {
+        "uri": "http://localhost:9001/dist/out.js"
+      }
     },
     {
       "name": "MafViewer",
@@ -84,7 +88,8 @@
             "type": "SvgFeatureRenderer",
             "labels": {
               "name": "jexl:get(feature,'gene_name')"
-            }
+            },
+            "displayMode": "compact"
           }
         }
       ]
