@@ -5,6 +5,7 @@
   },
   "scripts": {
     "start": "npx serve --cors -l 9002",
-    "deploy": "aws s3 sync . s3://jbrowse.org/demos/app"
+    "deploy": "aws s3 sync . s3://jbrowse.org/demos/app",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E13LGELJOT4GQO --paths \"/demos/app/*\""
   }
 }
