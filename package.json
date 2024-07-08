@@ -4,6 +4,7 @@
     "prettier": "^3.2.4"
   },
   "scripts": {
+    "prestart": "open http://localhost:3000/?config=http%3A%2F%2Flocalhost%3A9002%2Fconfig_dev2.json",
     "start": "npx serve --cors -l 9002",
     "deploy": "aws s3 sync . s3://jbrowse.org/demos/app",
     "postdeploy": "aws cloudfront create-invalidation --distribution-id E13LGELJOT4GQO --paths \"/demos/app/*\""
