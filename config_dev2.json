@@ -1,12 +1,10 @@
 {
   "plugins": [
     {
-      "name": "MsaView",
-      "url": "https://unpkg.com/jbrowse-plugin-msaview/dist/jbrowse-plugin-msaview.umd.production.min.js"
-    },
-    {
       "name": "Protein3d",
-      "url": "https://unpkg.com/jbrowse-plugin-protein3d/dist/jbrowse-plugin-protein3d.umd.production.min.js"
+      "umdLoc": {
+        "uri": "http://localhost:9001/dist/out.js"
+      }
     },
     {
       "name": "MafViewer",
@@ -61,20 +59,21 @@
       "trackId": "gencode.v44.annotation.sorted.gff3",
       "name": "GENCODE v44",
       "category": ["Annotation"],
-      "assemblyNames": ["hg38"],
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "locationType": "UriLocation",
-          "uri": "https://jbrowse.org/demos/app/gencode.v44.annotation.sorted.gff3.gz"
+          "uri": "https://jbrowse.org/demos/app/gencode.v44.annotation.sorted.gff3.gz",
+          "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "locationType": "UriLocation",
-            "uri": "https://jbrowse.org/demos/app/gencode.v44.annotation.sorted.gff3.gz.tbi"
-          }
+            "uri": "https://jbrowse.org/demos/app/gencode.v44.annotation.sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
         }
       },
+      "assemblyNames": ["hg38"],
       "displays": [
         {
           "type": "LinearBasicDisplay",
@@ -351,7 +350,18 @@
           "indexType": "TBI"
         }
       },
-      "assemblyNames": ["hg38"]
+      "assemblyNames": ["hg38"],
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "ncbi_refseq-LinearBasicDisplay",
+          "jexlFilters": ["get(feature,'type')=='gene'"],
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "displayMode": "compact"
+          }
+        }
+      ]
     }
   ],
   "aggregateTextSearchAdapters": [

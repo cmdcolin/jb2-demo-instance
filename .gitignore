@@ -1,1 +1,7 @@
 node_modules
+static
+test_data
+*.js
+*.html
+*.d.ts
+*.map
