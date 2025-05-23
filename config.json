@@ -2,15 +2,15 @@
   "plugins": [
     {
       "name": "MsaView",
-      "url": "https://unpkg.com/jbrowse-plugin-msaview/dist/jbrowse-plugin-msaview.umd.production.min.js"
+      "umdLoc": { "uri": "jbrowse-plugin-msaview.umd.production.min.js" }
     },
     {
       "name": "Protein3d",
-      "url": "https://unpkg.com/jbrowse-plugin-protein3d/dist/jbrowse-plugin-protein3d.umd.production.min.js"
+      "umdLoc": { "uri": "jbrowse-plugin-protein3d.umd.production.min.js" }
     },
     {
       "name": "MafViewer",
-      "url": "https://unpkg.com/jbrowse-plugin-mafviewer/dist/jbrowse-plugin-mafviewer.umd.production.min.js"
+      "umdLoc": { "uri": "jbrowse-plugin-mafviewer.umd.production.min.js" }
     }
   ],
   "assemblies": [

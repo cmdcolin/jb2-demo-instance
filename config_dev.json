@@ -3,13 +3,13 @@
     {
       "name": "MsaView",
       "umdLoc": {
-        "uri": "http://localhost:9000/dist/out.js"
+        "uri": "http://localhost:9001/dist/out.js"
       }
     },
     {
       "name": "Protein3d",
       "umdLoc": {
-        "uri": "http://localhost:9001/dist/out.js"
+        "uri": "http://localhost:9000/dist/out.js"
       }
     },
     {
@@ -83,7 +83,6 @@
       "displays": [
         {
           "type": "LinearBasicDisplay",
-          "displayId": "gencode_nclist_v36_hg38_linear",
           "renderer": {
             "type": "SvgFeatureRenderer",
             "labels": {
@@ -407,40 +406,16 @@
     },
     "minimized": false,
     "id": "VoDejwePg3JzkR359IHy5",
-    "name": "New session 2/1/2024, 9:44:04 PM",
+    "name": "New session",
     "margin": 0,
     "views": [
       {
-        "id": "zgz_-Qr7nNbi83nJXNLnQ",
-        "minimized": false,
         "type": "LinearGenomeView",
-        "offsetPx": 251760.671875,
-        "bpPerPx": 203.3819319131076,
-        "displayedRegions": [
-          {
-            "refName": "1",
-            "start": 0,
-            "end": 248956422,
-            "reversed": false,
-            "assemblyName": "hg38"
-          }
-        ],
-        "tracks": [
-          {
-            "id": "Qe2eoyISqdWQdDz0g6q62",
-            "type": "FeatureTrack",
-            "configuration": "gencode.v44.annotation.sorted.gff3",
-            "minimized": false,
-            "displays": [
-              {
-                "id": "4r-xItqHFJ0-Iqd4NGWC-",
-                "type": "LinearBasicDisplay",
-                "heightPreConfig": 250,
-                "configuration": "gencode_nclist_v36_hg38_linear"
-              }
-            ]
-          }
-        ],
+        "init": {
+          "assembly": "hg38",
+          "loc": "1:51,203,573..51,499,696",
+          "tracks": ["gencode.v44.annotation.sorted.gff3"]
+        },
         "hideHeader": false,
         "hideHeaderOverview": false,
         "hideNoTracksActive": false,
